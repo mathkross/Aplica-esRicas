@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  
+
 </head>
+
 <body>
-    <audio id="exercicioAudio" src="sampleExerc.ogg" controls></audio>
-    <audio id="exercicioAudio2" src="sampleAudio.mp3" controls></audio>
+    <audio style="display: none;" id="exercicioAudio" src="" controls></audio>
+    <img style="width: 75px;" onclick="audioPlay()" id="imagemAudio" src="play.png">
+    <input id="upload" type="file" accept="audio/mp3, audio/ogg">
 </body>
 
 <script>
+    var isPlaying = false
+    var isLoading = false
+    document.getElementById("exercicioAudio").addEventListener('loadedmetadata', function () {  // escutando os eventos do componente audio e executando uma funçao para cada evento
+
+        document.getElementById("imagemAudio").src = "play.png"
+    }, false);
+
+    document.getElementById("exercicioAudio").addEventListener('ended', function () {  
+        document.getElementById("imagemAudio").src = "play.png"
+    }, false);
+
+    document.getElementById("exercicioAudio").addEventListener('play', function () {  
+        isPlaying = true
+        document.getElementById("imagemAudio").src = "imagemPausa.jpg"
+    }, false);
+
+    document.getElementById("exercicioAudio").addEventListener('pause', function () {
+        isPlaying = false
+        document.getElementById("imagemAudio").src = "play.png"
+    }, false);
+
+
+    function audioPlay() {
+        let audioPlay = document.getElementById("exercicioAudio")
+        if (isLoading){
+            return
+        }
+
+        if (!isPlaying) {
+            audioPlay.play()
+            return
+        }
+        audioPlay.pause()
+
+    }
+
+    async function handleAudio(event) { //funçao assincrona esperando algum resultado
+        let files = event.target.files;
+        document.getElementById("imagemAudio").src = "loading.gif"
+        isLoading = true
+        await new Promise(resolve => setTimeout(resolve, 1000)); //colocando um timer para passar de linha
+        document.getElementById("exercicioAudio").src = URL.createObjectURL(files[0])
+        isLoading = false
+        
+    }
+    document.getElementById("upload").addEventListener("change", handleAudio, false)
 
 </script>
 

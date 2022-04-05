@@ -15,7 +15,6 @@
 <script>
     let video = document.getElementById("videoExercicio");
     console.log(video)
-    // let meter = document.getElementById("meter");
     video.ontimeupdate = function () {
         console.log("teste")
         meter.value = video.currentTime;
