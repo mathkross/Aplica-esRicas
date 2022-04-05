@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+</head>
+
+<body>
+    <video id="videoExercicio" src="sample2.mp4" controls></video>
+    <button onclick="videoPlay()">Play</button>
+    <button onclick="videoPause()">Pause</button>
+    <meter id="meter" min="0" max="126" value=""></meter>
+
+</body>
+<script>
+    let video = document.getElementById("videoExercicio");
+    console.log(video)
+    // let meter = document.getElementById("meter");
+    video.ontimeupdate = function () {
+        console.log("teste")
+        meter.value = video.currentTime;
+        console.log("teste", video.currentTime)
+    }
+    function videoPlay() {
+        video.play();
+    }
+
+    function videoPause() {
+        let video = document.getElementById("videoExercicio");
+        video.pause();
+    }
+</script>
+
+</html>

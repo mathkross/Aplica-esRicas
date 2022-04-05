@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <style>
+        audio {
+            width: 100%;
+        }
+
+        video {
+            width: 100%;
+        }
+    </style>    
+</head>
+<body>
+    <audio id="myAudio" src="sample.mp3.mp3" controls></audio>
+    <video id="MyVideo" src="sample.mp4" controls></video>
+    <button onclick="playAudio() ">play</button>
+    <button onclick="pauseAudio() ">pause</button>
+</body>
+<script>
+   //let video = document.getElementById("myVideo");
+   let audio = document.getElementById("MyAudio");
+   
+
+  function playAudio(){
+    let audio = document.getElementById("MyAudio");
+    audio.currentTime = 60;
+    audio.play();
+  }
+
+  function pauseAudio(){
+      audio.pause();
+  }
+</script>
+</html>
