@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 5</title>
+    <style>
+        .main{
+            background-color: black;
+        }
+    </style>
+    
+</head>
+<body>
+    <!--DOM: Com java script conseguimos manipular a dom ( manipular elementos , mudar a child por exemplo, remover titulos, adicionar atributos, etc)-->
+    <div class="header">   
+    </div>
+     <section id="container">
+        <ul>
+            <li class="first">one</li>
+            <li class="second">two</li>
+            <li class="third">three</li>
+        </ul>
+        <ol>
+            <li class="first">one</li>
+            <li class="second">two</li>
+            <li class="third">three</li>
+        </ol>
+     </section>
+     <audio controls></audio>
+</body>
+</html>
+
+<script>
+/*Achar um elemento*/
+document.getElementById('container');
+/* Pegar um elemento pela classe */
+document.getElementsByClassName('header')[0];
+/*Pegar um elemento pela TagName */
+document.getElementsByTagName('section');
+/*Pegar um elemento pelo QuerySelector, sinal de > pega o primeiro elemento, li:first-child */
+document.querySelector('');
+/*Retornar todos os elementos*/
+document.querySelectorAll('ol li');
+/*pegar todos que tem class second*/
+document.querySelectorAll('.second')
+
+/*Modificando elementos*/
+/*Encontrar um elemento na dom e mudar o texto*/
+document.querySelector('.header').innerText = 'Ola Mundo'; 
+document.querySelector('.header').innerHTML = '<h1>Salve Mundo</h1>'
+/*Adicionar class no meu footer*/
+document.getElementsByClassName('footer')[0].classList.add('main'); /*Da mesma forma que eu posso adicionar posso .remove('main')*/
+/*Adicionando uma classe no container*/
+document.getElementById('container').classList.add('main'); 
+/*Criar um novo elemento li (numero four)*/
+document.getElementsByTagName('ul')[0].innerHTML += '<li></li>';
+
+let newLi = document.createElement('li');
+newLi.innerText = 'four'  /*Cria o elemento que quiser , append adiciona e remove ...*/
+let ul = document.getElementsByTagName('ul')[0]
+ul.appendChild(newLi);
+
+/*para remover da posição correta*/
+let liToRemove = ul.children[ul.children.length - 2];
+ul.removeChild(liToRemove);
+
+/*Trocar cor do background*/
+ul.style.background = 'red';
+ul.style.display = 'none'; /*escondendo nao removendo*/
+
+/*Colocar um mp3 dinamicamente no audio */
+document.getElementsByTagName('audio')[0].src = "#";
+</script>

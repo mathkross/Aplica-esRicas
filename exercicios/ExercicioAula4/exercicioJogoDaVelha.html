@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Jogo da Velha</title>
+    <style>
+      #jogoVelha {
+        width: 603px;
+        height: 600px;
+        border: solid 3px;
+      }
+
+      .box {
+        width: 200px;
+        height: 100%;
+        border-right: solid 1px;
+        float: left;
+      }
+
+      img {
+        width: 90px;
+        height: 150px;
+      }
+
+      .line {
+        height: 150px;
+        border-bottom: solid 1px;
+      }
+
+    </style>
+  </head>
+  <body>
+    
+    <img src="X.png" alt=""draggable="true"id="x">
+    
+    <img src="imagem0.png" alt=""draggable="true"id="o">
+      
+
+    <div id="jogoVelha">
+      <div class="line">
+        <div class="box" id="b1"></div>
+        <div class="box" id="b2"></div>
+        <div class="box" id="b3"></div>
+      </div>
+      <div class="line">
+        <div class="box" id="b4"></div>
+        <div class="box" id="b5"></div>
+        <div class="box" id="b6"></div>
+      </div>
+      <div class="line">
+        <div class="box" id="b7"></div>
+        <div class="box" id="b8"></div>
+        <div class="box" id="b9"></div>
+      </div>
+    </div>
+
+    <script>
+      var jogo = document.getElementById("jogoVelha");
+      var x = document.getElementById("x");
+      var o = document.getElementById("o");
+
+      x.addEventListener("dragstart", (event) => {
+        event.dataTransfer.setData("Imagem", event.target.id);
+        console.log("Arrastando X");
+      });
+
+      o.addEventListener("dragstart", (event) => {
+        event.dataTransfer.setData("Imagem", event.target.id);
+        console.log("Arrastando O");
+      });
+
+      jogo.addEventListener("drop", (event) => {
+        let elementId = event.dataTransfer.getData("Imagem");
+        console.log(elementId)
+
+        
+        if(elementId == x.id){
+            let imagemx = x.cloneNode();
+            event.target.appendChild(imagemx);
+        }else{
+            let imagemo = o.cloneNode();
+            event.target.appendChild(imagemo);
+        }
+
+        console.log("Drop");
+      });
+
+      jogo.addEventListener("dragover", () => {
+        event.preventDefault();
+      });
+
+      jogo.addEventListener("dragleave", () => {
+        dropzone.classList.remove("dropable-over");
+      });
+    </script>
+  </body>
+</html>

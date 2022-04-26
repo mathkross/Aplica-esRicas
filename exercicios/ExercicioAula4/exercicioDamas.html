@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   
+   
+    <title>Document</title>
+    <style>
+        td{
+            width: 150px;
+            height: 150px;
+        }
+        #descartar{
+            float: right;
+            width:  200px;
+            height: 200px;
+            border: 1px solid red;
+
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="black", draggable="true"></td>
+            <td></td>
+            <td class="black"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="black"></td>
+            <td></td>
+            <td class="black"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="black"></td>
+            <td></td>
+            <td class="black"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="black"></td>
+            <td></td>
+            <td class="black"></td>
+            <td></td>
+
+        </tr>
+        <div id="descartar">
+
+        </div>
+    </table>
+
+    <script>
+
+        let images = document.getElementsByTagName('img');
+
+        for(let i = 0; i < images.length; i++){
+            let image = images[i];
+
+            image.addEventListener("dragstart", (event) => {
+                lastElementElementDragged = event.target;
+            });
+        }
+    
+       let elements =  document.getElementsByTagName('td');
+       let lastElementElementDragged;
+        
+       for(let = 0, i < elements.length, i++ ) {
+            let element = elements[i];
+
+            element.addEventListener("dragover", (event) =>{
+                event.preventDefault();
+            });
+            element.addEventListener("drop", (event) =>{
+                event.preventDefault();
+                console.log("Drop",);
+                event.target.appendChild(lastElementElementDragged);
+            });
+        }
+
+        let descartar = document.getElementById("descartar");
+        
+        descartar.addEventListener("dragover", (event) =>{
+            event.preventDefault();
+        });
+
+        descartar.addEventListener("drop", (event) =>{
+            event.preventDefault();
+            event.target.appendChild(lastElementElementDragged);
+        });
+
+
+ 
+    </script>
+</body>
+</html>
