@@ -1,0 +1,52 @@
+Aula 7 : Armazanamento de Dados
+
+Em html temos o Web Storage:
+
+- permite armazenar dados offline para uso posterior
+- mais robusto que cookies
+
+Tipos de Web Storage:
+
+Local Storage: (pares chave-valor) - parecido com cookies. Os dados ficam no navegador nao sendo automaticamente enviados toda vez
+Objeto localStorageA
+
+setItem(armazenar algum dado) (window.localStorage.setItem("chave", "valor"))
+getItem(obter algum dado) (window.localStorage.getItem(("chave"))
+window.localStorage.lenght
+
+removeItem()
+clear()
+key()
+prioridade Lenght
+
+
+Session Storage : Somente armazena dados quando a sessão do usuario esta ativa (quando o usuario sai do site ele ja perde os dados)
+sintaxes a mesma ex: sessionStorage.getitem(");
+
+Quando usar um ou outro???
+Local = guardadr dados futuro
+session: na hora
+
+Vantagens de armazenar dados no navegador e nao no servidor:
+
+nao precisar manter uma base no servidor com dados de cada acesso
+nao precisa fazer requisiçoes e esperar pela resposta
+
+Cache: armazena dados para nao precisar ficar recarregando
+Deve selecionar os auqivos para elciconar no nagvegador , deve ser informado no começo
+CACHE MANIFEST
+ex2a.html
+ex3a.html
+paisagem.jpg
+
+# comentarios bom para o controle de versão.
+pode ter FALLBACK (pode conter arquivos alternativos) e NETWORK (pode listar aquivos que NUNCA devem estar em cache ex: pagina de login) (:)
+
+
+AJAX : js + xml (realizar requisiçoes assincronas)
+JS XML HTML OBJETO (xmlHttpRequest)
+realiza troca de dados com o servidor sem recarrega r apgina 
+
+Navegador : evento ocorrre , cria um objeto de requiciçao aja, envia a requisiçao
+
+

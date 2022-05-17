@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <script>
+        function sendRequest() {
+            let xmlHtmlRequest =  new XMLHttpRequest();
+            
+            xmlHtmlRequest.onreadystatechange = () => {
+                console.log(xmlHtmlRequest.readyState == 4 && xmlHtmlRequest.status == 200); {
+                    console.log(xmlHtmlRequest.responseText);
+                }
+            }
+
+            xmlHtmlRequest.open("GET", "arquivo.json", true);
+            xmlHtmlRequest.send();
+        }
+    </script>
+</body>
+</html>
