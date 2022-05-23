@@ -50,3 +50,10 @@ realiza troca de dados com o servidor sem recarrega r apgina
 Navegador : evento ocorrre , cria um objeto de requiciçao aja, envia a requisiçao
 
 
+
+AULA 8 
+
+**********WEB WORKER*¨*************
+
+
+PostMessage : mandar uma mensafgem de uma pagina para outra
